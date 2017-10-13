@@ -22,9 +22,11 @@ RUN apt-get install -y xutils-dev
 # install python
 RUN apt-get install -y python
 
+# install git
+RUN apt-get install -y git
 
 # Install DBM
-COPY /dbm /dbm
+COPY /code/dbm /dbm
 WORKDIR /dbm/modules
 RUN make
 RUN make install
@@ -32,14 +34,14 @@ RUN make install
 
 # Install PyDBM
 WORKDIR /
-COPY /python_dbm /python_dbm
+COPY /code/python_dbm /python_dbm
 WORKDIR python_dbm/
 RUN python ./setup.py build
 RUN python ./setup.py install
 
 WORKDIR /
 
-# Add code files
-COPY /code /code
+# pull git repo
+RUN git pull https://github.com/ElectricCoffee/p7-Code.git code
 
 CMD /bin/bash
