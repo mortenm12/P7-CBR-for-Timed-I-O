@@ -31,14 +31,15 @@ RUN make install
 
 
 # Install PyDBM
-WORKDIR ../../
+WORKDIR /
 COPY /python_dbm /python_dbm
 WORKDIR python_dbm/
 RUN python ./setup.py build
 RUN python ./setup.py install
 
-WORKDIR ../
+WORKDIR /
+
+# Add code files
+COPY /code /code
 
 CMD /bin/bash
-
-
