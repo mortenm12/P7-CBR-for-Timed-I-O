@@ -26,7 +26,7 @@ RUN apt-get install -y python
 RUN apt-get install -y git
 
 # Install DBM
-COPY /dbm /dbm
+COPY /code/dbm /dbm
 WORKDIR /dbm/modules
 RUN make
 RUN make install
@@ -34,7 +34,7 @@ RUN make install
 
 # Install PyDBM
 WORKDIR /
-COPY /python_dbm /python_dbm
+COPY /code/python_dbm /python_dbm
 WORKDIR python_dbm/
 RUN python ./setup.py build
 RUN python ./setup.py install
