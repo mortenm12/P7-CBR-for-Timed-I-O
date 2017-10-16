@@ -38,10 +38,11 @@ COPY /code/python_dbm /python_dbm
 WORKDIR python_dbm/
 RUN python ./setup.py build
 RUN python ./setup.py install
+RUN python test.py
 
 WORKDIR /
 
 # pull git repo
-RUN git pull https://github.com/ElectricCoffee/p7-Code.git code
+RUN git clone https://github.com/ElectricCoffee/p7-Code.git code
 
 CMD /bin/bash
