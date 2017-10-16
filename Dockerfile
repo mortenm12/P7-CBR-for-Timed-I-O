@@ -43,6 +43,6 @@ RUN python test.py
 WORKDIR /
 
 # pull git repo
-RUN git pull https://github.com/ElectricCoffee/p7-Code.git .
+RUN git clone https://github.com/ElectricCoffee/p7-Code.git .
 
 CMD /bin/bash
