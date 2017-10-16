@@ -38,6 +38,7 @@ COPY /code/python_dbm /python_dbm
 WORKDIR python_dbm/
 RUN python ./setup.py build
 RUN python ./setup.py install
+RUN python test.py
 
 WORKDIR /
 
