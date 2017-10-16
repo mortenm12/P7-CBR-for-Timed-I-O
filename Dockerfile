@@ -42,6 +42,6 @@ RUN python ./setup.py install
 WORKDIR /
 
 # pull git repo
-RUN git pull https://github.com/ElectricCoffee/p7-Code.git code
+RUN git pull https://github.com/ElectricCoffee/p7-Code.git .
 
 CMD /bin/bash
