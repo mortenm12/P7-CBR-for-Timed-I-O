@@ -25,8 +25,11 @@ RUN apt-get install -y python
 # install git
 RUN apt-get install -y git
 
+# install nano
+RUN apt-get install -y nano
+
 # Install DBM
-COPY /code/dbm /dbm
+COPY /dbm /dbm
 WORKDIR /dbm/modules
 RUN make
 RUN make install
@@ -34,7 +37,7 @@ RUN make install
 
 # Install PyDBM
 WORKDIR /
-COPY /code/python_dbm /python_dbm
+COPY /python_dbm /python_dbm
 WORKDIR python_dbm/
 RUN python ./setup.py build
 RUN python ./setup.py install
